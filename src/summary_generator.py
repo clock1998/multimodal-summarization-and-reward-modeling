@@ -96,7 +96,7 @@ class Generator:
                         outputs = self.model.generate(
                             **inputs,
                             max_new_tokens=2000,
-                            temperature=0.7,
+                            temperature=0.5,
                             top_p=0.9,
                             do_sample=True,
                             pad_token_id=self.tokenizer.pad_token_id,
@@ -190,7 +190,7 @@ class Generator:
             article_text = article_text[:max_length] + "..."
         
         prompt = f"""<s>[INST] You are an expert at summarizing academic articles. 
-                    Generate two precise and meaningful summaries under 100 words on the following article content.
+                    Generate two precise and meaningful summaries around 150 words on the following article content.
                     Format your response as a JSON object where the object has "response1" and "response2" fields.
 
                     Article content:
